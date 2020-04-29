@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,500;1,300&display=swap');
+
+@font-face {
+  font-family: 'Sprat Extended Medium';
+  src: url(fonts/SpratExtnMedium.woff2) format('woff2'),
+       url(fonts/SpratExtnMedium.woff) format('woff'), 
+}
+
+body {
+	background-color: #191919;
+	perspective: 1500px;
+	height: 100vh;
+	overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Sprat Extended Medium', serif;
+	color: #f5f5f5;
+	margin: 0;
+}
+
+h1 {
+	font-size: 3em;
+	letter-spacing: 4px;
+	line-height: 1.4em;
+}
+
+p {
+	font-family: 'Work Sans', sans-serif;
+	text-transform: uppercase;
+	color: #f5f5f5;
+	font-size: 10px;
+	letter-spacing: 1px;
+	font-weight: 300;
+	line-height: 1.4em;
+}
+
+.info {
+	display: -webkit-box;
+  	display: -moz-box;
+ 	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	height: 95%;
+	padding: 1em;
+}
+
+.info .top {
+	width: 80%;
+
+}
+
+
+.bottom {
+	display: -webkit-box;
+  	display: -moz-box;
+ 	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	z-index: 10;
+}
+
+button {
+	background: none;
+	border: none;
+}
+
+button:focus {
+	outline: none;
+}
+
+.open svg, .close svg {
+	fill: #f5f5f5;
+	width: 50px;
+	height: auto;
+	transition: all 0.5s ease;
+}
+
+.close svg {
+	fill: #191919;
+}
+
+.open svg:hover, .close svg:hover {
+	transform: translateY(-5px);
+	fill: #ffffff;
+	width: 60px;
+}
+
+.close svg:hover {
+	fill: #000000;
+}
+
+.close {
+    cursor: pointer;
+    border-radius: 0.25rem;
+}
+
+.about a {
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.5s ease;
+	padding-bottom: .2em;
+}
+
+.about a:hover {
+	transform: translateY(-5px);
+	font-size: 14px;
+	color: #ffffff;
+}
+
+/* Modal */
+.modal h2, .modal p {
+	color: #191919;
+} 
+
+.modal h2 {
+	letter-spacing: 2px;
+}
+
+.modal p {
+	font-size: 1em;
+	letter-spacing: 0;
+}
+
+.modal a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: 500;
+	transition: all 1s ease;
+	padding-bottom: 1px;
+	border-bottom: 2px solid #191919;
+}
+
+#sprat {
+	font-family: 'Sprat', serif;
+}
+
+.desc {
+	transition: all 0.5s ease;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+
+}
+
+.desc-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5;
+    padding: 1rem 1.5rem;
+    width: 30%;
+    height: 80%;
+    display: -webkit-box;
+  	display: -moz-box;
+ 	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	border: 2px solid #000000;
+    box-shadow: 10px 8px;
+}
+
+.header {
+	display: -webkit-box;
+  	display: -moz-box;
+ 	display: -ms-flexbox;
+  	display: -webkit-flex;
+  	display: flex;
+  	flex-direction: row;
+  	justify-content: space-between;
+  	width: 100%;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.clicked {
+	visibility: hidden;
+}
+
+
+/* Rotating Cube */
+
+section {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+
+	transform: rotateX(20deg) rotateY(20deg);
+}
+
+div.face {
+	position: absolute;
+	top: 0
+	left: 0;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+
+div.face-cover {
+	background-image: url(../images/front.jpg);
+	transform: translateX(-50%) translateY(-50%) translateZ(150px);
+}
+
+div.face-side {
+	background-image: url(../images/right.jpg);
+	transform: translateX(-50%) translateY(-50%) rotateY(90deg) translateZ(150px);
+}
+
+div.face-spine {
+	background-image: url(../images/left.jpg);
+	transform: translateX(-50%) translateY(-50%) rotateY(-90deg) translateZ(150px);
+}
+
+div.face-top {
+	background-image: url(../images/top.jpg);
+	transform: translateX(-50%) translateY(-50%) rotateX(90deg) translateZ(150px);
+}
+
+div.face-bottom {
+	background-image: url(../images/bottom.jpg);
+	transform: translateX(-50%) translateY(-50%) rotateX(-90deg) translateZ(150px);
+}
+
+div.face-back {
+	background-image: url(../images/back.jpg);
+	transform: translateX(-50%) translateY(-50%) rotateY(180deg) translateZ(150px);
+}
+
+/* Media Queries */
+
+@media all and (max-width: 768px) {
+	.desc-content {
+		height: 80%;
+		width:80%;
+	}
+
+	.top h1 {
+	    font-size: 2em;
+	    letter-spacing: 2px;
+	    line-height: 1.2em;
+	}
+
+	.info .top {
+		width: 100%;
+	}
+
+	div.face {
+		height: 150px;
+		width: 150px;
+	}
+
+	div.face-cover {
+		background-image: url(../images/front.jpg);
+		transform: translateX(-50%) translateY(-50%) translateZ(75px);
+	}
+
+	div.face-side {
+		background-image: url(../images/right.jpg);
+		transform: translateX(-50%) translateY(-50%) rotateY(90deg) translateZ(75px);
+	}
+
+	div.face-spine {
+		background-image: url(../images/left.jpg);
+		transform: translateX(-50%) translateY(-50%) rotateY(-90deg) translateZ(75px);
+	}
+
+	div.face-top {
+		background-image: url(../images/top.jpg);
+		transform: translateX(-50%) translateY(-50%) rotateX(90deg) translateZ(75px);
+	}
+
+	div.face-bottom {
+		background-image: url(../images/bottom.jpg);
+		transform: translateX(-50%) translateY(-50%) rotateX(-90deg) translateZ(75px);
+	}
+
+	div.face-back {
+		background-image: url(../images/back.jpg);
+		transform: translateX(-50%) translateY(-50%) rotateY(180deg) translateZ(75px);
+	}
+
+
+}
+
+
